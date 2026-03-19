@@ -188,6 +188,7 @@ git-statuz/
 |   |-- policy/
 |   |   `-- check_standard.py
 |   `-- windows/
+|       |-- build_nuitka.py          # Build standalone Windows package with Nuitka
 |       |-- setup_env.py              # Create/verify .venv via uv sync
 |       |-- run_app.py               # Launch app via hatch run
 |       |-- run_app_gui.pyw          # Launch GUI without console window
@@ -213,6 +214,7 @@ git-statuz/
 
 | Script | Description |
 |---|---|
+| `python scripts\windows\build_nuitka.py` | Build the standalone Windows package into `build\nuitka\standalone\` |
 | `python scripts\windows\setup_env.py` | Create/verify `.venv` via `uv sync --locked` |
 | `pyw scripts\windows\run_app_gui.pyw` | Launch GUI without console window (auto-bootstraps venv) |
 | `python scripts\windows\run_app.py` | Launch app via `hatch run` (requires hatch in PATH) |
@@ -248,6 +250,18 @@ uv lock --check
 ```
 
 `uv lock` must be run whenever dependencies change, and the updated `uv.lock` must be committed.
+
+### Packaging
+
+```bat
+hatch run package-standalone
+:: or
+python scripts\windows\build_nuitka.py
+```
+
+This creates a standalone Nuitka build under `build\nuitka\standalone\`.
+
+Version 1 of packaging intentionally does not bundle external system tools. `git` and optional `WinMerge` integration must remain installed and available on the target machine.
 
 ## Troubleshooting
 
