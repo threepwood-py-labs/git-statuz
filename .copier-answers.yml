@@ -1,6 +1,6 @@
 # Changes here will be overwritten by Copier.
 _src_path: "../_py_template"
-_commit: "v1.7.4-1-gf6a9b9e"
+_commit: "v1.7.4-3-g8ae837d"
 project_name: "git-statuz"
 project_kind: "qt_app"
 package_name: "git_statuz"
@@ -12,3 +12,4 @@ project_version: "0.1.0"
 runtime_dependencies:
 
   - "PySide6>=6.10.2"
+
